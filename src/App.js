@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const[employee, setEmployee] = useState({name:'', role:''})
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" name="name" value={employee.name} onChange={e=>setEmployee({...employee, name:e.target.value})}/>
+      <input type="text" name="role" value={employee.role} onChange={e=>setEmployee({...employee,role:e.target.value})}/><br></br>
+      <span>Name is:- {employee.name}</span><br></br>
+      <span>Role is is:- {employee.role}</span>
+      <h3>{JSON.stringify(employee)}</h3>
+
     </div>
   );
 }
